@@ -1,118 +1,55 @@
-# Laravel-Grundlagenkurs – Teilnehmer-Starter-Repo
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-Dieses Repository ist der Ausgangspunkt für den Kurs **Laravel-Grundlagen** mit dem Projekt **campusmanager**.
+## Über dieses Repository
 
-Es enthält:
+Dieses Repository enthält Projekte und Aufgaben aus meinem PHP-Kurs zum Erlernen des Laravel Frameworks.
 
-- ein vorbereitetes Laravel-Projekt (oder einen Verweis darauf)
-- diese README mit den wichtigsten Schritten
-- eine einfache Git- und Artisan-Übersicht
+Hier sammle ich alle praktischen Übungen, Projekte und Aufgabenstellungen, die während des Laravel-Kurses entstehen. Das Repository dient als Dokumentation meines Lernfortschritts und als Referenz für zukünftige Projekte.
 
-Ziel: Du sollst möglichst schnell mit Laravel arbeiten können, ohne lange Installationshürden.
+## Inhalte
 
----
+- Praktische Übungsprojekte
+- Kursaufgaben und deren Lösungen
+- Code-Beispiele und Best Practices
+- Dokumentation der gelernten Konzepte
 
-## Voraussetzungen
+## Technologien
 
-- Zugang zu einer Ubuntu-VM (wird im Kurs zur Verfügung gestellt)
-- VS Code mit der Erweiterung „Remote – SSH“
-- PHP und Composer sind auf der VM installiert (wird im Kurs vorbereitet)
+- **Framework:** Laravel
+- **Sprache:** PHP
+- **Datenbank:** MySQL
+- **Entwicklungsumgebung:** Lokaler Entwicklungsserver (php artisan serve)
 
----
+## Projekte
 
-## Projekt auf der VM einrichten
+### LibraryManager
+Ein Bibliotheksverwaltungssystem zum Verwalten von Büchern und Ausleihvorgängen.
 
-1. Per VS Code per SSH auf die VM verbinden.
-2. Terminal öffnen und einen Ordner für Laravel-Projekte anlegen:
+### CampusManager
+Ein Campusverwaltungssystem (in Entwicklung).
 
-   ```bash
-   mkdir -p ~/laravel
-   cd ~/laravel
-   ```
+## Über Laravel
 
-3. Dieses Starter-Repo klonen (URL bekommst du im Kurs):
+Laravel ist ein Web-Application-Framework mit expressiver, eleganter Syntax. Laravel nimmt den Schmerz aus der Entwicklung, indem es häufige Aufgaben in vielen Webprojekten erleichtert, wie z.B.:
 
-   ```bash
-   git clone <DEINE_REPO_URL> campusmanager
-   cd campusmanager
-   ```
+- [Einfache, schnelle Routing-Engine](https://laravel.com/docs/routing)
+- [Leistungsstarker Dependency Injection Container](https://laravel.com/docs/container)
+- [Ausdrucksstarkes, intuitives Datenbank-ORM](https://laravel.com/docs/eloquent)
+- [Datenbankunabhängige Schema-Migrationen](https://laravel.com/docs/migrations)
 
-4. Abhängigkeiten installieren:
+## Laravel lernen
 
-   ```bash
-   composer install
-   cp .env.example .env
-   php artisan key:generate
-   ```
+Laravel verfügt über die umfangreichste und gründlichste [Dokumentation](https://laravel.com/docs) und Video-Tutorial-Bibliothek aller modernen Web-Application-Frameworks.
 
-5. Datenbankverbindung in `.env` anpassen. Die Zugangsdaten bekommst du im Kurs, typischer Aufbau:
+Weitere Ressourcen:
+- [Laravel Learn](https://laravel.com/learn) - Geführte Tutorials
+- [Laracasts](https://laracasts.com) - Tausende von Video-Tutorials
 
-   ```env
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=laravelkurs
-   DB_USERNAME=laravel_user
-   DB_PASSWORD=LaravelKurs!2025
-   ```
+## Lizenz
 
-6. Migrationen ausführen:
-
-   ```bash
-   php artisan migrate
-   ```
-
-7. Entwicklungsserver starten:
-
-   ```bash
-   php artisan serve --host=0.0.0.0 --port=8000
-   ```
-
-   Danach kannst du im Browser deines Hostsystems die Seite öffnen, zum Beispiel:
-
-   ```text
-   http://<Deine-IP-Adresse>:8000
-   ```
+Das Laravel-Framework ist Open-Source-Software, lizenziert unter der [MIT-Lizenz](https://opensource.org/licenses/MIT).
 
 ---
 
-## Wichtige Artisan-Befehle im Kurs
+*Dieses Repository wird kontinuierlich während des Kurses aktualisiert.*
 
-```bash
-# Datenbank migrieren
-php artisan migrate
-
-# Datenbank neu aufsetzen und Seeder ausführen
-php artisan migrate:fresh --seed
-
-# Konfigurations-Cache leeren (z. B. nach Änderung von .env)
-php artisan config:clear
-
-# Entwicklungsserver starten
-php artisan serve --host=0.0.0.0 --port=8000
-```
-
----
-
-## Optionale Git-Verwendung
-
-Wenn du deinen Fortschritt sichern möchtest, kannst du Git verwenden:
-
-```bash
-git status
-git add .
-git commit -m "Stand Tag 1"
-git push origin main
-```
-
-Dies ist optional und abhängig davon, ob der Kurs Git behandelt.
-
----
-
-## Hilfe im Kurs
-
-Wenn etwas nicht funktioniert:
-
-- prüfe Fehlermeldungen im Terminal
-- frage deinen Trainer nach typischen Stolpersteinen (zum Beispiel fehlende Migrationen, falsche Route, View nicht gefunden)
-- gib nicht auf: Fehlersuche gehört zum Entwickleralltag dazu
