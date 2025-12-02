@@ -187,12 +187,12 @@ td {
 }
 
 th {
-  background: #eff6ff;
+  background: #fff8e9;
   font-weight: 600;
 }
 
 tbody tr:nth-child(even) {
-  background: #f9fafb;
+  background: #fbfaf9;
 }
 
 /* Code & Pre */

@@ -12,8 +12,8 @@
             <h1 class="page-title">Librarymanager</h1>
             <p class="page-subtitle">Laravel-Grundlagenkurs</p>
             <nav class="page-nav">
-                <a href="{{ route('home') }}">Start</a>
-                <a href="{{ route('books') }}">Books</a>
+                <a href="{{ route('books') }}">Startseite</a>
+                <a href="{{ route('booklist.index') }}">Bücherliste</a>
             </nav>
             <hr>
         </header>
