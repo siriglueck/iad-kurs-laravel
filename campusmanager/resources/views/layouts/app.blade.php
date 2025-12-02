@@ -13,6 +13,7 @@
             <p class="page-subtitle">Laravel-Grundlagenkurs</p>
             <nav class="page-nav">
                 <a href="{{ route('home') }}">Start</a>
+                <a href="{{ route('students.index') }}">Studenten</a>
                 <a href="{{ route('about') }}">About</a>
             </nav>
             <hr>

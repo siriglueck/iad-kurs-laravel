@@ -1,0 +1,78 @@
+# =========================================================
+# Allgemein für den Kursverlauf (VM / Projekte)
+# =========================================================
+ 
+# OS / System
+.DS_Store
+Thumbs.db
+ 
+# Editor
+.idea/
+.vscode/
+*.code-workspace
+ 
+# Logs & temporäre Dateien
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+ 
+# Node modules global verhindern
+node_modules/
+ 
+# Composer vendor global verhindern
+vendor/
+ 
+# PHPStorm / IntelliJ
+*.iml
+ 
+ 
+# =========================================================
+# Laravel-Projekt: campusmanager/
+# =========================================================
+ 
+# Laravel spezielle Ordner
+campusmanager/vendor/
+campusmanager/node_modules/
+campusmanager/storage/
+campusmanager/bootstrap/cache/
+ 
+# Laravel Umgebung
+campusmanager/.env
+campusmanager/.env.backup
+campusmanager/.env.example.local
+ 
+# Laravel Cache / Builds
+campusmanager/public/storage
+campusmanager/public/hot
+campusmanager/public/build
+campusmanager/public/mix-manifest.json
+ 
+# Laravel IDE Helper
+campusmanager/_ide_helper.php
+campusmanager/_ide_helper_models.php
+campusmanager/.phpstorm.meta.php
+ 
+# PHPUnit
+campusmanager.phpunit.result.cache
+ 
+ 
+# =========================================================
+# Librarymanager (falls PHP oder Laravel wird)
+# =========================================================
+ 
+librarymanager/vendor/
+librarymanager/node_modules/
+librarymanager/storage/
+librarymanager/bootstrap/cache/
+librarymanager/.env
+ 
+ 
+# =========================================================
+# Falls ZIPs / temporäre Dateien entstehen
+# =========================================================
+ 
+*.zip
+*.tar
+*.gz
+*.tmp
