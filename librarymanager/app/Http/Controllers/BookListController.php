@@ -12,7 +12,7 @@ class BookListController extends Controller
     {
         // generiert eine DB-Abfrage z.B. SELECT * FROM students ORDER BY lastname
         $books = Book::orderBy('published_year')->get();
-        return view('booklist.index',[
+        return view('books.index',[
             'books' => $books
         ]);
     

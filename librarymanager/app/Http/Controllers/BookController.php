@@ -1,20 +1,21 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\Book;
 
 class BookController extends Controller
 {
+    public $timestamps = false;
     public function index() 
     {
-        $headline = 'Willkommen im „LibraryManager – Startseite"';
-        $today = now()->format('d.m.Y');
+        $books = Book::orderBy('published_year')->get();
         
         /**
          * Ruft die View home.blade.php auf und übergibt Variableninhalte
          */
-        return view('books', [
-            'headline' => $headline,
-            'today'    => $today
+        return view('books.index',[
+            'books' => $books
         ]);
     }
+
 }

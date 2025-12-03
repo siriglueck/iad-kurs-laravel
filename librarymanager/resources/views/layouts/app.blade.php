@@ -13,7 +13,10 @@
             <p class="page-subtitle">Laravel-Grundlagenkurs</p>
             <nav class="page-nav">
                 <a href="{{ route('books') }}">Startseite</a>
-                <a href="{{ route('booklist.index') }}">Bücherliste</a>
+                <a href="{{ route('books.index') }}">Bücherliste</a>
+                <a href="{{ route('library.welcome') }}">Welcome</a>
+                <a href="{{ route('library.team') }}">Team</a>
+                <a href="{{ route('library.contact') }}">Contact</a>
             </nav>
             <hr>
         </header>
