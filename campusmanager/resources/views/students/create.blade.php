@@ -29,7 +29,7 @@
             <div class="form-group">
                 <label for="lastname">Nachname:</label>
                 <input type="text" name="lastname" id="lastname" value="{{ old('lastname') }}" >
-                @error('last')
+                @error('lastname')
                     <span class="form-error">{!! __($message) !!}</span>
                 @enderror
             </div>

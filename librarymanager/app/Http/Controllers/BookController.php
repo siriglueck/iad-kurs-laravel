@@ -10,12 +10,47 @@ class BookController extends Controller
     {
         $books = Book::orderBy('published_year')->get();
         
-        /**
-         * Ruft die View home.blade.php auf und übergibt Variableninhalte
-         */
+        return view('index');
+    }
+
+    public function showAll() 
+    {
+        // generiert eine DB-Abfrage z.B. SELECT * FROM students ORDER BY lastname
+        $books = Book::orderBy('published_year')->get();
         return view('books.index',[
             'books' => $books
         ]);
+    
+    }
+
+    public function create()
+    {
+        return view('books.create');
+    }
+
+    public function store()
+    {
+
+    }
+
+    public function show()
+    {
+
+    }
+
+    public function edit()
+    {
+
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function destroy()
+    {
+
     }
 
 }

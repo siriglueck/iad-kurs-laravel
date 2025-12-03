@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 class SiteController
 {
     public function welcome() {
-        return view('books.welcome');
+        return view('welcome');
     }
     
     public function team() {
-        return view('books.team');
+        return view('team');
     }
     
     public function contact() {
-        return view('books.contact');
+        return view('contact');
     }
 }

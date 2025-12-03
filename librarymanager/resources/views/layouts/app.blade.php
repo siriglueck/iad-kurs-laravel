@@ -12,7 +12,7 @@
             <h1 class="page-title">Librarymanager</h1>
             <p class="page-subtitle">Laravel-Grundlagenkurs</p>
             <nav class="page-nav">
-                <a href="{{ route('books') }}">Startseite</a>
+                <a href="{{ route('index') }}">Startseite</a>
                 <a href="{{ route('books.index') }}">Bücherliste</a>
                 <a href="{{ route('library.welcome') }}">Welcome</a>
                 <a href="{{ route('library.team') }}">Team</a>

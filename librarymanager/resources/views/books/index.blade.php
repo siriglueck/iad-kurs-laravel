@@ -5,6 +5,7 @@
 @section('content')
 
     <h2>Bücherliste</h2>
+    <a class="btn btn-secondary" href="{{ route('books.create') }}">Buch anlegen</a>
 
     @if($books->isEmpty()) 
         <p>Es sind noch keine Bücher vorhanden.</p>
