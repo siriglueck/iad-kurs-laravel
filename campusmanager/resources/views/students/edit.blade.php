@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Student anlegen')
+@section('title', 'Student bearbeiten')
 
 @section('content')
 
-    <h2>Neuen Studenten anlegen</h2>
+    <h2>Neuen Studenten bearbeiten</h2>
 
     @if ($errors->any())
         <div class="form-error">
@@ -16,19 +16,20 @@
         </div>
     @endif
 
-    <form action="{{ route('students.store') }}" method="post" novalidate>
+    <form action="/students/{{ $student->id }}" method="post" novalidate>
         @csrf
+        @method('PUT')
         <div class="form-row cols-2">
             <div class="form-group">
                 <label for="firstname">Vorname:</label>
-                <input type="text" name="firstname" id="firstname" value="{{ old('firstname') }}" >
+                <input type="text" name="firstname" id="firstname" value="{{ old('firstname', $student->firstname) }}" >
                 @error('firstname')
                     <span class="form-error">{!! __($message) !!}</span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="lastname">Nachname:</label>
-                <input type="text" name="lastname" id="lastname" value="{{ old('lastname') }}" >
+                <input type="text" name="lastname" id="lastname" value="{{ old('lastname', $student->lastname) }}" >
                 @error('last')
                     <span class="form-error">{!! __($message) !!}</span>
                 @enderror
@@ -38,21 +39,21 @@
         <div class="form-row email-age-mat">
             <div class="form-group">
                 <label for="email">E-Mail-Adresse:</label>
-                <input type="email" name="email" id="email" value="{{ old('email') }}" >
+                <input type="email" name="email" id="email" value="{{ old('email', $student->email) }}" >
                 @error('email')
                     <span class="form-error">{!! __($message) !!}</span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="age">Alter:</label>
-                <input type="number" name="age" id="age" value="{{ old('age') }}">
+                <input type="number" name="age" id="age" value="{{ old('age', $student->age) }}">
                 @error('age')
                     <span class="form-error">{!! __($message) !!}</span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="matriculation_number">Martrikelnummer:</label>
-                <input type="text" name="matriculation_number" id="matriculation_number" value="{{ old('matriculation_number') }}" >
+                <input type="text" name="matriculation_number" id="matriculation_number" value="{{ old('matriculation_number', $student->matriculation_number) }}" >
                 @error('matriculation_number')
                     <span class="form-error">{!! __($message) !!}</span>
                 @enderror
