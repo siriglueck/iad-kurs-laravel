@@ -58,7 +58,29 @@
                     <option value="kids-teen">Kinder- und Jugendbücher</option>
                     <option value="guide">Ratgeber</option>
                     <option value="biography">Biografien</option>
-                </select>    
+                    <option value="other">Other...</option>
+                </select>
+                <input 
+                    type="text" 
+                    id="customCategory" 
+                    name="custom_category" 
+                    class="form-control mt-2"
+                    placeholder="Enter your category"
+                    style="display: none;"
+                >
+                <script>
+                document.getElementById('category').addEventListener('change', function () {
+                    const customInput = document.getElementById('customCategory');
+
+                    if (this.value === 'other') {
+                        customInput.style.display = 'block';
+                        customInput.required = true;
+                    } else {
+                        customInput.style.display = 'none';
+                        customInput.required = false;
+                    }
+                });
+                </script>    
                 @error('category')
                     <span class="form-error">{!! __($message) !!}</span>
                 @enderror
@@ -67,7 +89,6 @@
         
         <button type="submit">Speichen</button>
     </form>
-    <a class="btn btn-primary" href="">Zurückkehren</a>
     <a class="btn btn-secondary" href="{{ route('books.index')}}">Zurückkehren</a>
 
 @endsection
