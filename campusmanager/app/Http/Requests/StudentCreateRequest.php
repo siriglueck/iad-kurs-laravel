@@ -23,7 +23,8 @@ class StudentCreateRequest extends FormRequest
                 'string',
                 'max:20',
                 'unique:students,matriculation_number'
-            ]
+            ],
+            'main_course_id' => ['nullable', 'integer', 'exists:courses,id'],
         ];
     }
 }

@@ -11,6 +11,8 @@
   /* Grün */
   --accent-warning: #f97316;
   /* Orange */
+  --accent-danger: #f91616;
+  /* Rot */
   --text-main: #111827;
   --text-muted: #6b7280;
   --border-soft: #e5e7eb;
@@ -222,7 +224,7 @@ pre code {
   justify-content: center;
   gap: 0.35rem;
   padding: 0.45rem 0.9rem;
-  border-radius: 999px;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
   font-size: 0.9rem;
@@ -231,18 +233,25 @@ pre code {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #cc5500, #a84400);
-  color: #ffffff;
-  box-shadow: 0 8px 18px rgba(204, 85, 0, 0.35);
+  background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35) !important;
 }
+
 .btn-primary:hover {
   filter: brightness(1.05);
 }
 
 .btn-secondary {
-  background: #ffffff;
-  color: var(--accent-primary);
-  border: 1px solid var(--accent-primary);
+  background: #ffffff !important;
+  color: var(--accent-primary) !important;
+  border: 1px solid var(--accent-primary) !important;
+}
+
+.btn-danger {
+  background: #fff7ed !important;
+  color: var(--accent-danger) !important;
+  border: 1px solid var(--accent-danger) !important;
 }
 
 .badge {
@@ -294,14 +303,14 @@ form textarea {
 form input:focus,
 form select:focus,
 form textarea:focus {
-  border-color: #cc5500;
+  border-color: #007bff;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
   outline: none;
 }
 
 form button[type="submit"],
 form input[type="submit"] {
-  background: #cc5500;
+  background: #007bff;
   color: #fff;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -313,7 +322,7 @@ form input[type="submit"] {
 
 form button[type="submit"]:hover,
 form input[type="submit"]:hover {
-  background: #a84400;
+  background: #0056b3;
 }
 
 .form-group {

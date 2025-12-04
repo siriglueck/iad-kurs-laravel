@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Course;
 use App\Http\Requests\StudentCreateRequest;
 
 class StudentsController extends Controller
@@ -11,34 +12,43 @@ class StudentsController extends Controller
     public function index() 
     {
         // generiert eine DB-Abfrage z.B. SELECT * FROM students ORDER BY lastname
-        $students = Student::orderBy('lastname')->get();
-        return view('students.index',[
-            'students' => $students
-        ]);
-    
+        // with('course') sorgt für "Eager Loading" bei verknüpften Abfragen
+        // und umgeht so das N+1-Problem
+        $students = Student::with(['mainCourse', 'courses'])->orderBy('lastname')->get();
+        return view('students.index', compact('students'));
     }
 
     public function create() 
     {
-      return view('students.create');
+        $courses = Course::orderBy('name')->get();
+
+        return view('students.create', [
+            'courses' => $courses,
+        ]);
     }
 
     public function store( StudentCreateRequest $request ) 
     {
         $student = Student::create($request->validated());
+        $students->course()->sync($request->input('course_ids', []));
+
         return redirect()
              ->route('students.index')
              ->with('success', 'Student wurde angelegt');
     }
 
     public function show(Student $student){
+        $courses = Course::orderBy('name')->get();
         return view('students.show', [
-            'student' => $student
+            'student' => $student,
+            'courses' => $courses,
         ]);
     }
     public function edit(Student $student){
+        $courses = Course::orderBy('name')->get();
         return view('students.edit', [
-            'student' => $student
+            'student' => $student,
+            'courses' => $courses,
         ]);
     }
     public function update(Request $request, Student $student){
@@ -51,7 +61,8 @@ class StudentsController extends Controller
                 'required',
                 'string',
                 'max:20',
-            ]
+            ],
+            'main_course_id' => ['nullable', 'integer', 'exists:courses,id'],
         ]);
 
         $student->update($data);

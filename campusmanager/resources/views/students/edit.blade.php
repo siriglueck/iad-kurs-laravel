@@ -6,15 +6,7 @@
 
     <h2>Neuen Studenten bearbeiten</h2>
 
-    @if ($errors->any())
-        <div class="form-error">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{!! __($error) !!}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    <x-flash />
 
     <form action="/students/{{ $student->id }}" method="post" novalidate>
         @csrf
@@ -58,6 +50,52 @@
                     <span class="form-error">{!! __($message) !!}</span>
                 @enderror
             </div>
+        </div>
+
+         <div class="form-row cols-2">
+
+            <div class="form-group">
+                <label for="main_course_id">Hauptkurs:</label>
+                <select name="main_course_id" id="main_course_id">
+                    <option value="">Bitte wählen</option>
+
+                    @foreach ($courses as $course)
+                        <option value="{{ $course->id }}"
+                            {{ old('main_course_id', $student->main_course_id) == $course->id ? 'selected' : '' }}>
+                            {{ $course->shortname }} - {{ $course->name }}
+                        </option>
+                    @endforeach
+
+                </select>
+                @error('main_course_id')
+                    <span class="form-error">{!! __($message) !!}</span>
+                @enderror
+            </div>
+
+            @php
+                $selectedCourses = old('course_ids', $student->courses->pluck('id')->all());
+            @endphp
+
+            <div class="form-group">
+                <p><strong>{{ __('Belegte Kurse') }}:</strong></p>
+
+                @foreach ($courses as $course)
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="course_ids[]"
+                            value="{{ $course->id }}"
+                            {{ in_array($course->id, $selectedCourses, true) ? 'checked' : '' }}
+                        >
+                        {{ $course->shortname }} – {{ $course->name }}
+                    </label><br>
+                @endforeach
+
+                @error('course_ids')
+                    <span class="form-error">{!! __($message) !!}</span>
+                @enderror
+            </div>
+
         </div>
         
         <button type="submit">Speichen</button>

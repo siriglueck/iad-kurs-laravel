@@ -6,6 +6,8 @@
 
     <h2>Studenten anzeigen</h2>
 
+    <x-flash />
+
     @if ($errors->any())
         <div class="form-error">
             <ul>
