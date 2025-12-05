@@ -30,7 +30,7 @@ class StudentsController extends Controller
     public function store( StudentCreateRequest $request ) 
     {
         $student = Student::create($request->validated());
-        $students->course()->sync($request->input('course_ids', []));
+        $student->courses()->sync($request->input('course_ids', []));
 
         return redirect()
              ->route('students.index')
